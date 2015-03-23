@@ -1,1 +1,1 @@
-Template README
+Battle on!
