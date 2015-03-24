@@ -5,7 +5,9 @@ feature 'board can place a ship' do
   let(:board) { Board.new }
   let(:ship1) { Ship.new }
   scenario 'ship can be created and placed on board' do
-    expect(board.place(ship1, :A2)).to eq ship1
+    board.place(ship1, :A2)
+    board_state = { A1: 'w', A2: ship1, A3: 'w', A4: 'w', A5: 'w' }
+    expect(board.location).to eq board_state
   end
 
   scenario 'board can place ship only on existing spot' do

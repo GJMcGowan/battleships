@@ -10,14 +10,18 @@ class Board
   def place(ship, spot)
     fail 'can\'t place ship beyond board' unless off_board?(spot)
     fail 'ship already there' if spot_with_ship?(spot)
-
     @location[spot] = ship
+    next_position(ship, spot) unless ship.size == 1
   end
 
-  def next _position
-    @location.keys[1]
-    m = @location.keys[1+1]
-    @location[m]
+  def next_position(ship, spot)
+    array = @location.keys
+    index = array.index(spot)
+    new_spot = index + 1
+    new_key = array[new_spot]
+    @location[new_key] = ship
+    # m = @location.keys[1+1]
+    # @location[m]
     # location.keys -->l returns array
     # array.index --> get value  // take spot, get spots index
     # do index + 1
