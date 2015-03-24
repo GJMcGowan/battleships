@@ -7,24 +7,26 @@
 
 class Ship
   attr_reader :sunk
+  attr_reader :size
 
   def initialize
     @sunk = false
+    @size = 1
   end
 
   def sink!
     @sunk = true
   end
-  # def initialize# (arg)
-  #   # if arg == 'battleship'
-  #   #   @size = 4
-  #   # elsif arg == 'destroyer'
-  #   #   @size = 3
-  #   # elsif arg == 'frigate'
-  #   #   @size = 2
-  #   # else
-  #   #   fail 'Invalid Ship Type'
-  #   # end
-  #   @size = 1
-  # end
+
+  def battleship
+    @size = 4
+  end
+
+  def destroyer
+    @size = 3
+  end
+
+  def frigate
+    @size = 2
+  end
 end
